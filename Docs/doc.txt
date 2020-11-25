@@ -12,4 +12,10 @@ descricao = >= 10 && <= 250
 videoId = != "" && <= 15
 
 
+=========ENDPOINT========
+GET    = /game     | retorna TODOS
+GET    = /game/:id | retorna game pelo id
+POST   = /game     | Criar um novo game
+PUT    = /game/:id | Altera um game
+DELETE = /game/:id | deleta um game
 
