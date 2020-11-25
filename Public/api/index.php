@@ -1,5 +1,7 @@
 <?php
 
+use App\Controller\GameController;
+
 require_once('../../vendor/autoload.php');
 
 //HEADERS
@@ -16,7 +18,7 @@ $id = null;         //parametro
 $data = null;
 $method = $_SERVER['REQUEST_METHOD'];     //GET, POST, PUT, DELETE
 $uri = $_SERVER['REQUEST_URI'];
-$unsetCount = 3;
+$unsetCount = 4;
 
 //tratar a URI para retirar o que vem antes do Controller e do parametro
 $explodeUri = explode('/', $uri);
@@ -37,5 +39,47 @@ if(isset($explodeUri[1])){
 //recebendo valores passados e convertendo para post
 parse_str(file_get_contents('php://input'), $data);
 echo json_encode(["Controller" => $controller, "id" => $id]);
+
+
+$gameController = new GameController();
+switch ($method){
+    case 'GET':
+        if($controller != null && $id == null){
+            echo $gameController-> readAll();
+        } elseif($controller != null && $id != null){
+            echo $gameController-> readById($id);
+        } else {
+            echo json_encode(["result" => "invalid"]);
+        }
+    break;
+
+    case 'POST':
+        if($controller != null && $id == null){
+            echo $gameController-> create($data);
+        } else {
+            echo json_encode(["result" => "invalid"]);
+        }
+    break;
+
+    case 'PUT':
+        if($controller != null && $id != null){
+            echo $gameController-> update($id, $data);
+        } else {
+            echo json_encode(["result" => "invalid"]);
+        }
+    break;
+    
+    case 'DELETE':
+        if($controller != null && $id != null){
+            echo $gameController-> delete($id);
+        } else {
+            echo json_encode(["result" => "invalid"]);
+        }
+    break;
+
+    default:
+        echo json_encode(["result" => "invalid Request "]);
+break;
+}
 
 ?>
