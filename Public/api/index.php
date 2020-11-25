@@ -15,8 +15,27 @@ $controller = null; //game
 $id = null;         //parametro
 $data = null;
 $method = $_SERVER['REQUEST_METHOD'];     //GET, POST, PUT, DELETE
+$uri = $_SERVER['REQUEST_URI'];
+$unsetCount = 3;
 
+//tratar a URI para retirar o que vem antes do Controller e do parametro
+$explodeUri = explode('/', $uri);
 
-echo json_encode(["tipo" => $method]);
+for($i = 0; $i < $unsetCount; $i++){
+    unset($explodeUri[$i]);
+}
+
+$explodeUri = array_values($explodeUri);
+
+if(isset($explodeUri[0])){
+    $controller = $explodeUri[0];
+}
+if(isset($explodeUri[1])){
+    $id = $explodeUri[1];
+}
+
+//recebendo valores passados e convertendo para post
+parse_str(file_get_contents('php://input'), $data);
+echo json_encode(["Controller" => $controller, "id" => $id]);
 
 ?>
