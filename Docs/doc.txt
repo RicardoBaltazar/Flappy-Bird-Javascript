@@ -11,3 +11,5 @@ titulo = > 3 && <= 100
 descricao = >= 10 && <= 250
 videoId = != "" && <= 15
 
+
+
