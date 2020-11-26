@@ -6,7 +6,10 @@ use App\Entity\Game;
 Class GameController{
 
     public function create($data = null){
-        return json_encode(["name" => "create"]);
+        $game = $this->convertType($data);
+
+        var_dump($game);
+        //return json_encode(["name" => "create"]);
     }
 
     public function update($id = 0, $data = null){
@@ -25,5 +28,12 @@ Class GameController{
         return json_encode(["name" => "readAll"]);
     }
 
-
+    public function convertType($data){
+        return new Game(
+            null,
+            (isset($data['titulo']) ? $data['titulo'] : null),
+            (isset($data['descricao']) ? $data['descricao'] : null),
+            (isset($data['videoId']) ? $data['videoId'] : null)
+        );
+    }
 }

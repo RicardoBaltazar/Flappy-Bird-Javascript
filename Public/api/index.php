@@ -18,7 +18,7 @@ $id = null;         //parametro
 $data = null;
 $method = $_SERVER['REQUEST_METHOD'];     //GET, POST, PUT, DELETE
 $uri = $_SERVER['REQUEST_URI'];
-$unsetCount = 4;
+$unsetCount = 3;
 
 //tratar a URI para retirar o que vem antes do Controller e do parametro
 $explodeUri = explode('/', $uri);
