@@ -5,6 +5,7 @@ Foi utilizada a api [https://www.football-data.org/](https://www.football-data.o
 ### Tecnologias  
 - [NextJS](https://nextjs.org/docs)
   
+### Screenshot  
 ![screenshot-localhost_3000-2021 03 01-15_59_43](https://user-images.githubusercontent.com/56805229/109545689-ee3c7a00-7aa7-11eb-9c31-99e50aa41e1b.png)  
   
 ### Pré-requisitos  
