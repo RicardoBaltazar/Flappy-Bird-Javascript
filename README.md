@@ -16,5 +16,4 @@ Tenha um editor instalado para trabalhar no projeto. recomento o [Visual Studio 
 ### Intalando  
 - Escolha um diretório e clone o repositório com o comando ```git clone https://github.com/RicardoBaltazar/football-ranking-app.git```  
 - Na pasta do projeto onde esta o arquivo package.json, abra o terminal e rode o comando ```npm install``` para instalar as dependencias para rodar o projeto.  
-- Para Rodar o projeto, acesse a pasta pages, abra o terminal e rode o comando ```npm run dev``` e acese no browser o endereço local http://localhost:3000/.  
-- 
+- Para rodar o projeto, acesse a pasta pages, abra o terminal e rode o comando ```npm run dev``` e acesse no browser o endereço local http://localhost:3000/.  
